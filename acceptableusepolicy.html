@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--
+   _____                                  _             _  _    _              _   
+  / ____|                                | |           | || |  | |            | |  
+ | |      ___   _ __   _ __    ___   ___ | |_  ___   __| || |__| |  ___   ___ | |_ 
+ | |     / _ \ | '_ \ | '_ \  / _ \ / __|| __|/ _ \ / _` ||  __  | / _ \ / __|| __|
+ | |____| (_) || | | || | | ||  __/| (__ | |_|  __/| (_| || |  | || (_) |\__ \| |_ 
+  \_____|\___/ |_| |_||_| |_| \___| \___| \__|\___| \__,_||_|  |_| \___/ |___/ \__|
+                                                                                   
+                        Site made with <3 by Robert S.   -   https://robert-s.dev
+-->
+<html lang="en">
+
+<head>
+  <link rel="icon" href="./assets/img/logo.png" type="image/png">
+  <title>ConnectedHost</title>
+  <!-- Meta Tags -->
+  <meta name="description" content="Reliable free website hosting. Forever." />
+  <meta name="keywords" content="Webhost, Free, Unlimited, WordPress, PHP, Fast">
+  <meta name="author" content="ConnectedHost">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono">
+  <!-- Custom CSS -->
+  <link href="./assets/css/main.css" type="text/css" rel="stylesheet" />
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css" />
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <!-- Embeds -->
+  <meta property="og:title" content="ConnectedHost - AUE">
+  <meta property="og:description" content="Reliable free website hosting.">
+  <meta name="theme-color" content="#2664C8">
+  <meta property="og:url" content="https://connectedhost.xyz/acceptableusepolicy">
+  <meta property="og:image" content="./assets/img/logo.png">
+  <!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+  <script type="text/javascript" async=true>
+    (function () {
+      var host = 'connectedhost.xyz';
+      var element = document.createElement('script');
+      var firstScript = document.getElementsByTagName('script')[0];
+      var url = 'https://quantcast.mgr.consensu.org'
+        .concat('/choice/', '378RVKVCuuv5A', '/', host, '/choice.js')
+      var uspTries = 0;
+      var uspTriesLimit = 3;
+      element.async = true;
+      element.type = 'text/javascript';
+      element.src = url;
+
+      firstScript.parentNode.insertBefore(element, firstScript);
+
+      function makeStub() {
+        var TCF_LOCATOR_NAME = '__tcfapiLocator';
+        var queue = [];
+        var win = window;
+        var cmpFrame;
+
+        function addFrame() {
+          var doc = win.document;
+          var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+          if (!otherCMP) {
+            if (doc.body) {
+              var iframe = doc.createElement('iframe');
+
+              iframe.style.cssText = 'display:none';
+              iframe.name = TCF_LOCATOR_NAME;
+              doc.body.appendChild(iframe);
+            } else {
+              setTimeout(addFrame, 5);
+            }
+          }
+          return !otherCMP;
+        }
+
+        function tcfAPIHandler() {
+          var gdprApplies;
+          var args = arguments;
+
+          if (!args.length) {
+            return queue;
+          } else if (args[0] === 'setGdprApplies') {
+            if (
+              args.length > 3 &&
+              args[2] === 2 &&
+              typeof args[3] === 'boolean'
+            ) {
+              gdprApplies = args[3];
+              if (typeof args[2] === 'function') {
+                args[2]('set', true);
+              }
+            }
+          } else if (args[0] === 'ping') {
+            var retr = {
+              gdprApplies: gdprApplies,
+              cmpLoaded: false,
+              cmpStatus: 'stub'
+            };
+
+            if (typeof args[2] === 'function') {
+              args[2](retr);
+            }
+          } else {
+            queue.push(args);
+          }
+        }
+
+        function postMessageEventHandler(event) {
+          var msgIsString = typeof event.data === 'string';
+          var json = {};
+
+          try {
+            if (msgIsString) {
+              json = JSON.parse(event.data);
+            } else {
+              json = event.data;
+            }
+          } catch (ignore) { }
+
+          var payload = json.__tcfapiCall;
+
+          if (payload) {
+            window.__tcfapi(
+              payload.command,
+              payload.version,
+              function (retValue, success) {
+                var returnMsg = {
+                  __tcfapiReturn: {
+                    returnValue: retValue,
+                    success: success,
+                    callId: payload.callId
+                  }
+                };
+                if (msgIsString) {
+                  returnMsg = JSON.stringify(returnMsg);
+                }
+                if (event && event.source && event.source.postMessage) {
+                  event.source.postMessage(returnMsg, '*');
+                }
+              },
+              payload.parameter
+            );
+          }
+        }
+
+        while (win) {
+          try {
+            if (win.frames[TCF_LOCATOR_NAME]) {
+              cmpFrame = win;
+              break;
+            }
+          } catch (ignore) { }
+
+          if (win === window.top) {
+            break;
+          }
+          win = win.parent;
+        }
+        if (!cmpFrame) {
+          addFrame();
+          win.__tcfapi = tcfAPIHandler;
+          win.addEventListener('message', postMessageEventHandler, false);
+        }
+      };
+
+      makeStub();
+
+      var uspStubFunction = function () {
+        var arg = arguments;
+        if (typeof window.__uspapi !== uspStubFunction) {
+          setTimeout(function () {
+            if (typeof window.__uspapi !== 'undefined') {
+              window.__uspapi.apply(window.__uspapi, arg);
+            }
+          }, 500);
+        }
+      };
+
+      var checkIfUspIsReady = function () {
+        uspTries++;
+        if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+          console.warn('USP is not accessible');
+        } else {
+          clearInterval(uspInterval);
+        }
+      };
+
+      if (typeof window.__uspapi === 'undefined') {
+        window.__uspapi = uspStubFunction;
+        var uspInterval = setInterval(checkIfUspIsReady, 6000);
+      }
+    })();
+  </script>
+  <!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+</head>
+
+<body class="uk-light">
+  <!-- Content -->
+  <div class="uk-light wrap uk-background-norepeat uk-background-cover uk-background-center-center uk-cover-container">
+    <!-- Main -->
+    <div id="home" class="uk-flex uk-flex-center uk-flex-middle uk-position-z-index uk-position-relative uk-section">
+      <!-- Navbar -->
+      <div class="uk-position-top" uk-scrollspy="target: > .animate; cls: uk-animation-fade;"
+        uk-scrollspy-nav="closest: li; scroll: true">
+        <div class="uk-container uk-container-small animate">
+          <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+              <ul class="uk-navbar-nav">
+                <a class="uk-navbar-item uk-logo" href="index.html" alt="Logo"><img src="./assets/img/logo.svg"
+                    height="22.5px" width="181px"></a>
+              </ul>
+            </div>
+            <div class="uk-navbar-right">
+              <ul class="uk-navbar-nav">
+                <li><a class="uk-text-capitalize" href="https://my.connectedhost.xyz/login">Login</a></li>
+                <div class="uk-navbar-item">
+                  <a class="uk-text-capitalize uk-button uk-button-secondary light-button" style="color: #000;"
+                    href="https://my.connectedhost.xyz/register">Sign Up</a>
+                </div>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="uk-flex uk-flex-center uk-flex-middle uk-position-z-index uk-position-relative uk-section">
+      <!-- Text -->
+      <div class="uk-container uk-container-small uk-flex-auto uk-text-center"
+        uk-scrollspy="target: > .animate; cls: uk-animation-fade; delay: 500;">
+        <h1 class="uk-heading-primary animate">ConnectedHost - AUP</h1>
+        <div class="uk-width-10-10 uk-width-medium-10-10 uk-width-small-1-1 animate">
+            <h3>Acceptable Use Policy:</h3>
+            <br>
+            All services provided by ConnectedHost may be used for lawful purposes only. Transmission, storage, or presentation of
+            any information, data or material in violation of any United States Federal, State or City law is prohibited. This
+            includes, but is not limited to: copyrighted material, material we judge to be threatening or obscene, or material
+            protected by trade secret and other statutes. The subscriber agrees to indemnify and hold harmless ConnectedHost and its
+            employees from any claims resulting from the use of the service which damages the subscriber or any other party. Our
+            acceptable use policy is actively and strictly enforced. Offending content or users are suspended from our network,
+            usually as soon as they are discovered, although we will always inform you when and why any action has been taken.
+            Pornography is prohibited on all ConnectedHost servers. This includes sites that include sexually explicit or hardcore
+            images and/or advertising.
+            <br>
+            <br>
+            Subscriber acknowledges that the service provided is of such a nature that service can be interrupted for many reasons
+            other than the negligence of the company and that damages resulting from any interruption of service are difficult to
+            ascertain. Therefore, subscriber agrees that the company shall not be liable for any damages arising from such causes
+            beyond the direct and exclusive control of the company.
+            <br>
+            <br>
+            Subscriber further acknowledges that the company's liability for its own negligence may not, in any event, exceed an
+            amount equivalent to charges payable by subscriber for services during the period damages occurred. In no event shall
+            the company be liable for any special or consequential damages, loss or injury.
+            <br>
+            <br>
+            Using any form of malicious files to corrupt, fill or disrupt any services will result in an immediate account
+            suspension. In the event of such suspension, the offending scripts, programs, or pages will be removed from the
+            account, and a soft limit will be applied to the account. After 3 calendar days have passed, the customer will regain
+            access to their account. If such an incident is to happen again, the account will be terminated, and a complete backup
+            of the customers files given to them via email.
+            <br>
+            <br>
+            Illegality In any form, including but not limited to the unauthorized distribution or copying of copyrighted software
+            or other data, harassment, fraud, trafficking in obscene material. Undesirable Content Certain types of content are
+            not allowed on our network. We do not host adult content of any description. Content relating to Hacking, Cracking,
+            and Nulling, is not allowed. Hosting adult videos is also not allowed without prior permission by ConnectedHost.
+            Software, audio and video downloads may only be hosted if you are the writer and copyright owner of the resources or
+            you have a right to distribute the materials. Accounts suspended due to content or AUP violation are not refunded
+            under any circumstances.
+            <br>
+            <br>
+        </div>
+      </div>
+    </div>
+    <footer id="site-foot" class="uk-section uk-section-xsmall uk-sticky" uk-sticky="bottom: true">
+      <div class="uk-container uk-text-small uk-text-center">
+        <i class="fas fa-terminal"></i> with <i class="fas fa-heart"></i> by <a href="https://robert-s.dev/"
+          target="_blank" rel="noreferrer">Robert
+          S.</a><br><a href="termsofservice.html" target="_blank" rel="noreferrer">Terms of Service</a> - <a
+          href="acceptableusepolicy.html" target="_blank" rel="noreferrer">Acceptable Use Policy</a>
+      </div>
+    </footer>
+</body>
+
+</html>
