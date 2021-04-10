@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /terms
+Allow: /privacy
+
+Sitemap: https://connectedhost.xyz/sitemap.xml
